@@ -1,10 +1,3 @@
-//
-//  Book.swift
-//  
-//
-//  Created by Matt Kobs on 1/10/20.
-//
-
 import Foundation
 
 enum Book: Int {
@@ -74,4 +67,9 @@ enum Book: Int {
         thirdJohn,
         jude,
         revelation
+    
+    var hasChapters: Bool {
+        guard let chapterCount = try? Pericope.maxChapter(of: self) else { return false }
+        return chapterCount > 1
+    }
 }
